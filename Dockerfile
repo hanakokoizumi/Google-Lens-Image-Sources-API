@@ -1,4 +1,4 @@
-FROM node
+FROM ghcr.io/puppeteer/puppeteer:latest
 WORKDIR /home/pptruser/app
 COPY . .
 
