@@ -4,6 +4,7 @@ COPY . .
 
 USER root
 RUN npm install
+RUN npx puppeteer browsers install chrome
 
 USER pptruser
 CMD ["node", "index.js"]
