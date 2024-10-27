@@ -5,7 +5,7 @@ FROM ghcr.io/puppeteer/puppeteer:latest
 WORKDIR /usr/src/app
 
 # Copy package.json and package-lock.json separately
-COPY package*.json ./
+COPY --chown=node:node package*.json ./
 
 # Ensure proper permissions for the working directory
 RUN chown -R node:node /usr/src/app
