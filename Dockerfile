@@ -4,14 +4,11 @@ FROM ghcr.io/puppeteer/puppeteer:latest
 # Set the working directory
 WORKDIR /app
 
-# Ensure proper permissions for the working directory
-RUN chown node:node /app
+# Copy the rest of the application files
+COPY . .
 
 # Install dependencies
 RUN npm install
-
-# Copy the rest of the application files
-COPY . .
 
 # Switch to the node user to avoid permission issues
 USER node
