@@ -2,13 +2,13 @@
 FROM ghcr.io/puppeteer/puppeteer:latest
 
 # Set the working directory
-WORKDIR /usr/src/app
+WORKDIR /app
 
 # Copy package.json and package-lock.json separately
 COPY --chown=node:node package*.json ./
 
 # Ensure proper permissions for the working directory
-RUN chown node:node /usr/src/app
+RUN chown node:node /app
 
 # Switch to the node user to avoid permission issues
 USER node
