@@ -8,7 +8,7 @@ WORKDIR /usr/src/app
 COPY --chown=node:node package*.json ./
 
 # Ensure proper permissions for the working directory
-RUN chown -R node:node /usr/src/app
+RUN chown node:node /usr/src/app
 
 # Switch to the node user to avoid permission issues
 USER node
