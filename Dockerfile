@@ -1,4 +1,4 @@
-FROM ghcr.io/puppeteer/puppeteer:latest
+FROM ghcr.io/puppeteer/puppeteer:22.14.0
 WORKDIR /home/pptruser/app
 COPY . .
 
