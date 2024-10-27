@@ -9,6 +9,7 @@ const cors = require('cors'); // Import the cors package
 
 const app = express();
 const port = process.env.PORT || 3000;
+const host = process.env.HOST || '0.0.0.0';
 
 // Initialize cache with a TTL of 1 hour
 const cache = new NodeCache({ stdTTL: 3600 });
@@ -72,7 +73,7 @@ const waitForResults = async (page) => {
     console.log("Waiting for results to load...");
     console.time("Results Load Time");
     try {
-        await page.waitForSelector('div.LHkehc[role="button"] div.WF9wo', { timeout: 60000 });
+        await page.waitForSelector('div.ICt2Q', { timeout: 60000 });
     } catch (error) {
         console.error("Results did not load in time:", error);
         throw new Error("Results did not load in time");
@@ -219,8 +220,8 @@ app.post('/api/upload', async (req, res) => {
 // Initialize the cluster and start the server
 initCluster().then(initializedCluster => {
     cluster = initializedCluster;
-    app.listen(port, () => {
-        console.log(`Server is running on http://localhost:${port}`);
+    app.listen(port, host, () => {
+        console.log(`Server is running on http://${host}:${port}`);
     });
 }).catch(err => {
     console.error('Failed to initialize Puppeteer Cluster:', err);
